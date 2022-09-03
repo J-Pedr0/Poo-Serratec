@@ -9,6 +9,11 @@ public class Cidade {
 		this.nomeCidade = nomeCidade;
 		this.estado = estado;
 	}
+	
+	@Override
+	public String toString() {
+		return nomeCidade + estado;
+	}
 
 	public String getNomeCidade() {
 		return nomeCidade;

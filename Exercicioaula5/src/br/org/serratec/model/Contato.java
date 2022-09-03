@@ -24,8 +24,8 @@ public class Contato {
 		return endereco;
 	}
 	
-	public void mostrarTelefone() {
-		
+	public String mostrarTelefone(Telefone telefone) {
+		return telefone +"\nTelefone: (22)94321-6587";
 	}
 
 }

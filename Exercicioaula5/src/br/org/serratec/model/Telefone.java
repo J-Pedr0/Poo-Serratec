@@ -7,6 +7,11 @@ public class Telefone {
 		super();
 		this.numero = numero;
 	}
+	
+	@Override
+	public String toString() {
+		return numero;
+	}
 
 	public String getNumero() {
 		return numero;

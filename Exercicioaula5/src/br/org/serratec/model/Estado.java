@@ -9,6 +9,11 @@ public class Estado {
 		this.nomeEstado = nomeEstado;
 		this.sigla = sigla;
 	}
+	
+	@Override
+	public String toString() {
+		return nomeEstado;
+	}
 
 	public String getNomeEstado() {
 		return nomeEstado;

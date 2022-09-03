@@ -13,6 +13,11 @@ public class Endereco {
 		this.cep = cep;
 		this.cidade = cidade;
 	}
+	
+	@Override
+	public String toString() {
+		return rua + bairro + cidade;
+	}
 
 	public String getRua() {
 		return rua;
