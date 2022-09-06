@@ -61,6 +61,7 @@ public class TesteVendedor {
 				break;
 			default:
 				System.out.println("Não é uma das opções!");
+				funcaoInicio(fixo, fixo2, fuv);
 				break;
 			}
 
@@ -86,6 +87,7 @@ public class TesteVendedor {
 				break;
 			default:
 				System.out.println("Não é uma das opções!");
+				funcaoInicio(fixo, fixo2, fuv);
 			break;
 			}
 			break;
@@ -97,7 +99,7 @@ public class TesteVendedor {
 
 		default:
 			System.out.println("Não é uma das opções!");
-			main(null);
+			funcaoInicio(fixo, fixo2, fuv);
 			break;
 		}
 	}
