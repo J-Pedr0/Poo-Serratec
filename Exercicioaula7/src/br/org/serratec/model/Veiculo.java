@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public abstract class Veiculo implements Oficina {
 	protected String modelo;
-	protected Double valorCobrado;
+	protected Double valorCobrado = 0.0;
 	protected LocalDate dataConcerto;
 	protected Proprietario proprietario;
 
@@ -39,19 +39,16 @@ public abstract class Veiculo implements Oficina {
 
 	@Override
 	public Double lavarVeiculo() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Double trcarOleo() {
-		// TODO Auto-generated method stub
+	public Double trocarOleo() {
 		return null;
 	}
 
 	@Override
 	public Double revisao() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -10,7 +10,7 @@ public class Proprietario {
 
 	@Override
 	public String toString() {
-		return "Proprietario [nome=" + nome + "]";
+		return "Proprietario: "+ nome;
 	}
 
 	public String getNome() {

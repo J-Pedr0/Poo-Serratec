@@ -1,6 +1,10 @@
 package br.org.serratec.model;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.Month;
+
+import br.org.serratec.enums.TipoServico;
 
 public class Carro extends Veiculo {
 	private String categoria;
@@ -11,26 +15,41 @@ public class Carro extends Veiculo {
 		this.categoria = categoria;
 	}
 
+	@Override
+	public String toString() {
+		return proprietario + " Modelo: " + modelo + " Categoria: " + categoria + " Valor Cobrado: " + valorCobrado;
+	}
+
 	public String getCategoria() {
 		return categoria;
 	}
 
 	@Override
 	public Double lavarVeiculo() {
-		// TODO Auto-generated method stub
-		return null;
+		valorCobrado = valorCobrado + TipoServico.LAVAGEM.getValorPorServico();
+		return valorCobrado;
 	}
 
 	@Override
-	public Double trcarOleo() {
-		// TODO Auto-generated method stub
-		return null;
+	public Double trocarOleo() {
+		if (dataConcerto.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
+			valorCobrado = valorCobrado + (TipoServico.OLEO.getValorPorServico() - 50.00);
+		} else {
+			valorCobrado = valorCobrado + TipoServico.OLEO.getValorPorServico();
+		}
+		return valorCobrado;
 	}
 
 	@Override
 	public Double revisao() {
-		// TODO Auto-generated method stub
-		return null;
+		if (dataConcerto.getMonth().equals(Month.AUGUST)) {
+			valorCobrado = valorCobrado
+					+ (TipoServico.REVISAO.getValorPorServico() - (TipoServico.REVISAO.getValorPorServico() * 0.1));
+
+		} else {
+			valorCobrado = valorCobrado + TipoServico.REVISAO.getValorPorServico();
+		}
+		return valorCobrado;
 	}
 
 }

@@ -2,31 +2,38 @@ package br.org.serratec.model;
 
 import java.time.LocalDate;
 
+import br.org.serratec.enums.TipoServico;
+
 public class Moto extends Veiculo {
-	private int cilindradas;
+	private Double cilindradas;
 
 	public Moto(String modelo, Double valorCobrado, LocalDate dataConcerto, Proprietario proprietario,
-			int cilindradas) {
+			Double cilindradas) {
 		super(modelo, valorCobrado, dataConcerto, proprietario);
 		this.cilindradas = cilindradas;
 	}
 
 	@Override
+	public String toString() {
+		return proprietario + " Modelo: " + modelo + " Cilindradas:" + cilindradas + " Valor Cobrado: " + valorCobrado;
+	}
+
+	@Override
 	public Double lavarVeiculo() {
-		// TODO Auto-generated method stub
+		valorCobrado = valorCobrado + TipoServico.LAVAGEM.getValorPorServico();
 		return null;
 	}
 
 	@Override
-	public Double trcarOleo() {
-		// TODO Auto-generated method stub
-		return null;
+	public Double trocarOleo() {
+		valorCobrado = valorCobrado + TipoServico.OLEO.getValorPorServico();
+		return valorCobrado;
 	}
 
 	@Override
 	public Double revisao() {
-		// TODO Auto-generated method stub
-		return null;
+		valorCobrado = valorCobrado + TipoServico.REVISAO.getValorPorServico();
+		return valorCobrado;
 	}
 
 }
