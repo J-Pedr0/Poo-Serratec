@@ -1,8 +1,10 @@
 package br.org.serratec.model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 import br.org.serratec.enuns.Aliquota;
 import br.org.serratec.enuns.Dinss;
@@ -14,10 +16,10 @@ public class Funcionario extends Pessoa implements Calculos {
 	private Double salarioBruto;
 	private Double descontoInss;
 	private Double descontoIr;
-	private List<Dependente> dependente;
+	private Set<Dependente> dependente;
 	private Double salarioLiq;
 
-	public Funcionario(String nome, String cpf, LocalDate dataNasc, Double salarioBruto, List<Dependente> dependente) {
+	public Funcionario(String nome, String cpf, LocalDate dataNasc, Double salarioBruto, Set<Dependente> dependente) {
 		super(nome, cpf, dataNasc);
 		this.salarioBruto = salarioBruto;
 		this.dependente = dependente;
@@ -26,13 +28,13 @@ public class Funcionario extends Pessoa implements Calculos {
 	public Funcionario(String nome, String cpf, LocalDate dataNasc, Double salarioBruto) {
 		super(nome, cpf, dataNasc);
 		this.salarioBruto = salarioBruto;
-		this.dependente = new ArrayList<Dependente>();
+		this.dependente = new HashSet<Dependente>();
 	}
 
 	@Override
 	public String toString() {
-		return "Nome: " + nome + " cpf: " + cpf + " Data de nascimento: " + dataNasc + " Salario: " + salarioBruto
-				+ "|| Dependentes:" + dependente;
+		return "Nome: " + nome + "  CPF: " + cpf + "  Data de nascimento: " + dataNasc + "  Salário bruto: "
+				+ salarioBruto + "  Dependentes:" + dependente;
 	}
 
 	public Double getSalarioBruto() {
@@ -63,7 +65,7 @@ public class Funcionario extends Pessoa implements Calculos {
 		this.descontoIr = descontoIr;
 	}
 
-	public void setDependente(List<Dependente> dependente) {
+	public void setDependente(Set<Dependente> dependente) {
 		this.dependente = dependente;
 	}
 

@@ -39,7 +39,7 @@ public class Empregado {
 		if (getClass() != obj.getClass())
 			return false;
 		Empregado other = (Empregado) obj;
-		return Objects.equals(cpf, other.cpf);
+		return Objects.equals(nome, other.nome);
 	}
 
 }

@@ -3,11 +3,12 @@ package br.org.serratec.model;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+
+import br.org.serratec.exception.DependenteException;
 
 public class LeituraArquivo {
 
@@ -26,7 +27,7 @@ public class LeituraArquivo {
 	public Set<Funcionario> LerArquivo() throws Exception {
 
 		try {
-			File arquivo = new File("/exemplos/empregados2.txt");
+			File arquivo = new File("/exemplos/empregados.txt");
 			Scanner sc = new Scanner(arquivo);
 			Set<Funcionario> funcionarios = new HashSet<>();
 			// ArrayList<Dependente> dependentes = new ArrayList<Dependente>();
@@ -45,12 +46,21 @@ public class LeituraArquivo {
 						Double salario = Double.parseDouble(vetor[3]);
 
 						LocalDate dataNascimento = LocalDate.parse(vetor[2], DATEFORMATTER);
+
 						funcionario = new Funcionario(vetor[0], vetor[1], dataNascimento, salario);
 						i++;
 					} else {
 						LocalDate dataNascimento = LocalDate.parse(vetor[2], DATEFORMATTER);
+						try {
+							String nome = vetor[0];
+							Dependente.verificarParentesco(vetor[3], nome);
+							Dependente.verificarIdade(dataNascimento, nome);
+							funcionario
+									.adicionarDependente(new Dependente(vetor[0], vetor[1], dataNascimento, vetor[3]));
 
-						funcionario.adicionarDependente(new Dependente(vetor[0], vetor[1], dataNascimento, vetor[3]));
+						} catch (DependenteException e) {
+							System.out.println(e.getMessage() + "\n");
+						}
 
 					}
 				} else {
@@ -69,4 +79,5 @@ public class LeituraArquivo {
 		}
 
 	}
+
 }

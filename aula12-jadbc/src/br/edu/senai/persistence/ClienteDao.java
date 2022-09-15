@@ -12,8 +12,12 @@ import br.edu.senai.model.Cliente;
 public class ClienteDao {
 	private Connection connection;
 
-	public ClienteDao() {
-		connection = new ConnectionFactory().getConnection();
+//	public ClienteDao() {
+//		connection = new ConnectionFactory().getConnection();
+//	}
+	
+	public ClienteDao(Connection con) {
+		connection = con;
 	}
 
 	public void inserirCliente(Cliente cliente) {
@@ -25,7 +29,7 @@ public class ClienteDao {
 			stmt.setString(3, cliente.getEmail());
 			stmt.execute();
 			stmt.close();
-			connection.close();
+			//connection.close();
 
 		} catch (Exception e) {
 			System.out.println("Não foi possível gravar o registro!");
