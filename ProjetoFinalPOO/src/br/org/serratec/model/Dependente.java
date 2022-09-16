@@ -17,8 +17,8 @@ public class Dependente extends Pessoa {
 
 	@Override
 	public String toString() {
-		return "Dependente [parentesco=" + parentesco + ", nome=" + nome + ", cpf=" + cpf + ", dataNasc=" + dataNasc
-				+ "]";
+		return "Parentesco: " + parentesco + " || Nome: " + nome + " || CPF: " + cpf + " || Data de nascimento: "
+				+ dataNasc;
 	}
 
 	public String getParentesco() {
@@ -30,8 +30,7 @@ public class Dependente extends Pessoa {
 				|| parentesco.equals(Parentescos.Outros.parentesco)) {
 			return true;
 		} else {
-			throw new DependenteException(
-					nome + " não tem o parentesco permitido! Assim não contará para dedução!");
+			throw new DependenteException(nome + " não tem o parentesco permitido! Assim não contará para dedução!");
 		}
 
 	}
