@@ -2,9 +2,8 @@ package br.org.serratec.model;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Objects;
 
-import br.org.serratec.enuns.Parentescos;
+import br.org.serratec.enums.Parentescos;
 import br.org.serratec.exception.DependenteException;
 
 public class Dependente extends Pessoa {
@@ -17,8 +16,8 @@ public class Dependente extends Pessoa {
 
 	@Override
 	public String toString() {
-		return "Parentesco: " + parentesco + " || Nome: " + nome + " || CPF: " + cpf + " || Data de nascimento: "
-				+ dataNasc;
+		return "Dependente [parentesco=" + parentesco + ", nome=" + nome + ", cpf=" + cpf + ", dataNasc=" + dataNasc
+				+ "]";
 	}
 
 	public String getParentesco() {
